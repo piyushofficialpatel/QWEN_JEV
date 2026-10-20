@@ -127,6 +127,6 @@ base.to(DEVICE).eval(); head.to(DEVICE).eval()
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 Special thanks to **Avik Biswas (`avbiswas`)** for creating and open-sourcing the foundational **`avbiswas/bev-decision`(https://huggingface.co/datasets/avbiswas/bev-decision/viewer/default/train)** dataset and BEV training framework, which served as the foundation for curating [`Piyush-5541/QWEN_JEV_Dataset`](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset) (30,000 train / 6,302 test SFT split and 12,000 train / 4,000 test RLCB split) and developing the **QWEN_JEV** pipelines.
