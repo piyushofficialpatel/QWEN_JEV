@@ -59,12 +59,12 @@ When scoring $K$ candidate options `<option> opt_0 </option> ... <option> opt_K 
 ### Stage 1: Supervised Fine-Tuning (SFT)
 Trained on **30,000** structured decision examples and evaluated on **6,302** held-out test questions (`batch_size=4`, `lr_lora=1e-4`, `lr_head=1e-3`, cosine schedule with 5% warmup).
 
-| Metric / Split | Score |
+| Metric | Score |
 | :--- | :--- |
-| **Overall Test Accuracy** | **58.46%** |
-| **Binary Verification Accuracy (`accuracy_noul`)** | **66.81%** |
-| **Multi-Choice Accuracy (`accuracy_choice`)** | **59.01%** |
-| **Multi-Point Rubric Accuracy (`accuracy_score`)** | **46.21%** |
+| **Overall Accuracy** | **61.72%** |
+| **Binary Verification Accuracy (`accuracy_noul`)** | **68.08%** |
+| **Multi-Choice Accuracy (`accuracy_choice`)** | **63.06%** |
+| **Multi-Point Rubric Accuracy (`accuracy_score`)** | **50.97%** |
 
 ### Stage 2: RLCB (Reinforcement Learning for Calibrated Decisions)
 Standard Cross-Entropy loss drives winning logits toward $+\infty$, resulting in overconfident probabilities on ambiguous queries. In Stage 2, we post-train the SFT checkpoint on **12,000** training decisions and evaluate on **4,000** test decisions (`batch_size=4`) using **RLCB**:
