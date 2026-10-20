@@ -42,8 +42,6 @@ When scoring $K$ candidate options `<option> opt_0 </option> ... <option> opt_K 
 | **Total Active Parameters** | **20-Layer Backbone + LoRA + Head** | **`477,891,584` (~477.89M)** | **100%** |
 | **Total Trainable Parameters** | **LoRA + Custom Decision Head** | **`7,689,216` (~7.69M)** | **1.61%** |
 
-*(Note: Both Stage-1 SFT and Stage-2 RLCB have the exact same **477,891,584** total active parameter count and **7,689,216** trainable parameter footprint.)*
-
 ---
 
 ## 🎯 Two-Stage Training Pipeline & Evaluation Results
@@ -54,7 +52,7 @@ When scoring $K$ candidate options `<option> opt_0 </option> ... <option> opt_K 
 | **Stage 2: RLCB** | **12,000** | **4,000** | `4` | Brier Score + LOO Bandit + KL Anchor ($\beta = 0.04$) |
 
 ### Stage 1: Supervised Fine-Tuning (SFT)
-Trained on **30,000** structured decision examples and evaluated on **6,302** held-out test questions (`batch_size=4`, `lr_lora=1e-4`, `lr_head=1e-3`, cosine schedule with 5% warmup).
+Trained on **30,000** structured decision examples and evaluated on **6,302** held-out test questions (`batch_size=4`, `lr_lora=1e-4`, `lr_head=1e-3`).
 
 | Metric | Score |
 | :--- | :--- |
