@@ -1,8 +1,7 @@
 # QWEN_JEV: System-One Calibrated Decision Model (Qwen3-0.6B + Custom Head + RLCB)
 
 [![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-QWEN__JEV-yellow)](https://huggingface.co/Piyush-5541/QWEN_JEV/tree/main)
-[![Hugging Face SFT](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-bev--decision--lora-orange)](https://huggingface.co/Piyush-5541/bev-decision-lora/tree/main)
-[![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-QWEN__JEV__Dataset-blue)](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset)
+[![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-QWEN__JEV__Dataset-blue)](https://huggingface.co/Piyush-5541/QWEN_JEV_Dataset)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 **QWEN_JEV** is a fast, single-pass decision, verification, and rubric-scoring architecture built on a truncated **`Qwen/Qwen3-0.6B`** backbone with a custom 2-layer self-attention decision head (`head.pt`), rank-8 LoRA adapters (`lora/`), and **RLCB (Reinforcement Learning for Calibrated Decisions)** post-training.
