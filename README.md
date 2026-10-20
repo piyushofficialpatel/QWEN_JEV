@@ -1,4 +1,4 @@
-# QWEN_JEV: System-One Calibrated Decision Model (Qwen3-0.6B + Custom BEV Head + RLCB)
+# QWEN_JEV: System-One Calibrated Decision Model (Qwen3-0.6B + Custom Head + RLCB)
 
 [![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-QWEN__JEV-yellow)](https://huggingface.co/Piyush-5541/QWEN_JEV/tree/main)
 [![Hugging Face SFT](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-bev--decision--lora-orange)](https://huggingface.co/Piyush-5541/bev-decision-lora/tree/main)
@@ -134,4 +134,4 @@ base.to(DEVICE).eval(); head.to(DEVICE).eval()
 
 ## 🙏 Acknowledgements
 
-Special thanks to **Avik Biswas (`avbiswas`)** for creating and open-sourcing the foundational **`avbiswas/bev-decision`(https://huggingface.co/avbiswas)** dataset and BEV training framework, which served as the foundation for curating [`Piyush-5541/QWEN_JEV_Dataset`](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset) (30,000 train / 6,302 test SFT split and 12,000 train / 4,000 test RLCB split) and developing the **QWEN_JEV** pipelines.
+Special thanks to **Avik Biswas (`avbiswas`)** for creating and open-sourcing the foundational **`avbiswas/bev-decision`(https://huggingface.co/datasets/avbiswas/bev-decision/viewer/default/train)** dataset and BEV training framework, which served as the foundation for curating [`Piyush-5541/QWEN_JEV_Dataset`](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset) (30,000 train / 6,302 test SFT split and 12,000 train / 4,000 test RLCB split) and developing the **QWEN_JEV** pipelines.
