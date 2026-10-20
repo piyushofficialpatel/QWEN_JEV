@@ -18,8 +18,6 @@ Instead of relying on slow, uncalibrated autoregressive token generation, **QWEN
 - **Final RLCB-Calibrated Model:** [`Piyush-5541/QWEN_JEV`](https://huggingface.co/Piyush-5541/QWEN_JEV/tree/main)
 - **Stage-1 SFT Model:** [`Piyush-5541/bev-decision-lora`](https://huggingface.co/Piyush-5541/bev-decision-lora/tree/main)
 - **Curated Dataset:** [`Piyush-5541/QWEN_JEV_Dataset`](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset)
-- **Author GitHub:** [piyushofficialpatel](https://github.com/piyushofficialpatel?tab=repositories)
-
 ---
 
 ## 🧠 Model Architecture & Parameter Breakdown
