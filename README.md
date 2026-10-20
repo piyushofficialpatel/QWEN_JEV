@@ -16,7 +16,7 @@ Instead of relying on slow, uncalibrated autoregressive token generation, **QWEN
 ## 🔗 Open-Source Releases
 
 - **Final RLCB-Calibrated Model:** [`Piyush-5541/QWEN_JEV`](https://huggingface.co/Piyush-5541/QWEN_JEV/tree/main)
-- **Stage-1 SFT Model:** [`Piyush-5541/bev-decision-lora`](https://huggingface.co/Piyush-5541/bev-decision-lora/tree/main)
+- **Stage-1 SFT Model:** [`Piyush-5541/QWEN_JEV_SFT_Lora`](https://huggingface.co/Piyush-5541/QWEN_JEV_SFT_Lora/tree/main)
 - **Curated Dataset:** [`Piyush-5541/QWEN_JEV_Dataset`](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset)
 ---
 
