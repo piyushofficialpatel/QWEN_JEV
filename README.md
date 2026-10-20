@@ -51,8 +51,13 @@ When scoring $K$ candidate options `<option> opt_0 </option> ... <option> opt_K 
 
 ## 🎯 Two-Stage Training Pipeline & Evaluation Results
 
+| Stage | Training Samples | Test Samples | Batch Size | Optimization Objective |
+| :--- | :--- | :--- | :--- | :--- |
+| **Stage 1: SFT** | **30,000** | **6,302** | `4` | Cross-Entropy Loss |
+| **Stage 2: RLCB** | **12,000** | **4,000** | `4` | Brier Score + LOO Bandit + KL Anchor ($\beta = 0.04$) |
+
 ### Stage 1: Supervised Fine-Tuning (SFT)
-Trained on 50,000 structured questions and evaluated on 12,302 held-out test questions (`batch_size=4`, `lr_lora=1e-4`, `lr_head=1e-3`, cosine schedule with 5% warmup).
+Trained on **30,000** structured decision examples and evaluated on **6,302** held-out test questions (`batch_size=4`, `lr_lora=1e-4`, `lr_head=1e-3`, cosine schedule with 5% warmup).
 
 | Metric / Split | Score |
 | :--- | :--- |
@@ -62,7 +67,7 @@ Trained on 50,000 structured questions and evaluated on 12,302 held-out test que
 | **Multi-Point Rubric Accuracy (`accuracy_score`)** | **46.21%** |
 
 ### Stage 2: RLCB (Reinforcement Learning for Calibrated Decisions)
-Standard Cross-Entropy loss drives winning logits toward $+\infty$, resulting in overconfident probabilities on ambiguous queries. In Stage 2, we post-train the SFT checkpoint on 12,000 training decisions (evaluated on 4,000 test decisions) using **RLCB**:
+Standard Cross-Entropy loss drives winning logits toward $+\infty$, resulting in overconfident probabilities on ambiguous queries. In Stage 2, we post-train the SFT checkpoint on **12,000** training decisions and evaluate on **4,000** test decisions (`batch_size=4`) using **RLCB**:
 1. **Strictly Proper Brier Score Objective:**
    $$R(u_\theta(x), y) = 2u_{\theta, y}(x) - \sum_{k=1}^{K} u_{\theta, k}(x)^2 = 1 - \Vert{}u_\theta(x) - e_y\Vert{}_2^2$$
 2. **KL-Divergence Reference Anchor ($\beta = 0.04$):** Penalizes drift from the Stage-1 SFT distribution $u_{\text{ref}}(x)$ using memory-efficient dual PEFT adapter toggling (`sft_ref` vs. `default`).
@@ -129,4 +134,4 @@ base.to(DEVICE).eval(); head.to(DEVICE).eval()
 
 ## 🙏 Acknowledgements
 
-Special thanks to **Avik Biswas (`avbiswas`)** for creating and open-sourcing the foundational **`avbiswas/bev-decision`** dataset and BEV training framework, which served as the foundation for curating [`Piyush-5541/QWEN_JEV_Dataset`](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset) and developing the **QWEN_JEV** SFT and RLCB pipelines.
+Special thanks to **Avik Biswas (`avbiswas`)** for creating and open-sourcing the foundational **`avbiswas/bev-decision`** dataset and BEV training framework, which served as the foundation for curating [`Piyush-5541/QWEN_JEV_Dataset`](https://huggingface.co/datasets/Piyush-5541/QWEN_JEV_Dataset) (30,000 train / 6,302 test SFT split and 12,000 train / 4,000 test RLCB split) and developing the **QWEN_JEV** pipelines.
